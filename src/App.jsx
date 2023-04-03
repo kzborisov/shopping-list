@@ -6,7 +6,7 @@ function App() {
 
     return (
         <div className="flex flex-col">
-            <h1 className='text-3xl font-bold underline'>Tailwind + Vite</h1>
+            <h1 className='text-3xl font-bold underline'>What should I buy today</h1>
         </div>
     )
 }
