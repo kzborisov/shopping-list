@@ -3,7 +3,6 @@ import './App.css'
 import Product from './components/Product'
 import Form from './components/Form'
 
-{/* <BsPlusSquareFill /> */ }
 function App() {
     const [items, setItems] = useState([])
 
@@ -29,14 +28,10 @@ function App() {
     return (
         <div className="flex flex-col m-auto mt-10 p-4 drop-shadow-xl min-w-[350px] md:w-[550px] lg:w-[350px] bg-gray-100 rounded">
             <h1 className='text-left text-gray-600 text-2xl font-semibold capitalize m-8'>Shopiping List</h1>
-
-
             {items.map((item, idx) => (
                 <Product key={idx} item={item} />
             ))}
-
             <Form handleSubmit={handleSubmit} />
-
         </div>
     )
 }
