@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './App.css'
 import Product from './components/Product'
 import Form from './components/Form'
 import uuid from 'react-uuid'
 
 function App() {
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([]);
+    const inputRef = useRef(null);
 
-    useEffect(() => {
-    }, [items])
+    const focusInput = () => {
+        inputRef.current && inputRef.current.focus();
+    }
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -20,19 +22,20 @@ function App() {
             alert('Please fill in the product')
             return
         }
-        setItems([...items, { id: uuid(), product, qty, bought: false }])
+        setItems(
+            [...items, { id: uuid(), product, qty, bought: false }]
+                .sort((a, b) => a.bought - b.bought))
         e.target.product.value = ''
         e.target.qty.value = ''
+        focusInput()
     }
 
     const handleCheckboxClick = (item) => {
-        const updatedItems = items.map(i => item.id === i.id
-            ? { ...i, bought: !item.bought } : i).sort((a, b) => a.bought - b.bought);
+        const updatedItems = items
+            .map(i => item.id === i.id
+                ? { ...i, bought: !item.bought } : i)
+            .sort((a, b) => a.bought - b.bought);
         setItems(updatedItems);
-    }
-
-    const handleFormChange = (e) => {
-        console.log(e.target.value)
     }
 
     return (
@@ -43,7 +46,7 @@ function App() {
                     <Product item={item} handleClick={handleCheckboxClick} />
                 </React.Fragment>
             ))}
-            <Form handleChange={handleFormChange} handleSubmit={handleFormSubmit} />
+            <Form handleSubmit={handleFormSubmit} inputRef={inputRef}/>
         </div>
     )
 }

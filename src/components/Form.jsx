@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form = ({ handleChange, handleSubmit }) => {
+const Form = ({ handleSubmit, inputRef }) => {
     return (
         <form
             className='p-4 w-full flex flex-col items-center justify-center'
@@ -11,14 +11,13 @@ const Form = ({ handleChange, handleSubmit }) => {
                 placeholder='Product'
                 className='mb-4 p-2 w-full border-b-2 focus:outline-none focus:border-b-2 focus:border-b-orange-400 focus:drop-shadow-lg'
                 name='product'
-                onChange={handleChange}
+                ref={inputRef}
             />
             <input
                 type='number'
                 placeholder='Quantity'
                 className='mb-4 p-2 w-full border-b-2 focus:outline-none focus:border-b-2 focus:border-b-orange-400 focus:drop-shadow-lg'
                 name='qty'
-                onChange={handleChange}
             />
 
             <button

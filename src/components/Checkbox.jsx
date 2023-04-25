@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Checkbox = ({ handleClick, bought }) => {
+const Checkbox = ({ handleClick, bought, onChange }) => {
     return (
         <>
 
-            <input type="checkbox" name="bought" className="opacity-0 absolute h-4 w-4" defaultChecked={bought} />
+            <input type="checkbox" name="bought" className="opacity-0 absolute h-4 w-4" checked={bought} onChange={onChange} />
             <div
                 className={`${bought ? "bg-orange-400" : "bg-transparent"} cursor-pointer border-2 rounded-md border-orange-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-orange-400`}
                 onClick={handleClick}
