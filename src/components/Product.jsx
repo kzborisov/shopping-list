@@ -16,10 +16,13 @@ const Product = ({ item, handleClick, handleDeleteItem }) => {
                 />
                 <p className={`${item.isBought && 'line-through opacity-50'} text-left text-xl font-medium text-gray-500`}>{item.product}</p>
             </div>
-            <p className={`${item.isBought && 'line-through opacity-50'} text-gray-600 text-xl font-normal`}>{item.qty}</p>
-            <p className='text-gray-600 text-xl font-normal mx-2 cursor-pointer'>
-                <BsTrash onClick={() => handleDeleteItem(item)} />
-            </p>
+            <div className='flex flex-row items-center gap-2'>
+                <p className={`${item.isBought && 'line-through opacity-50'} text-gray-600 text-xl font-normal`}>{item.quantity}</p>
+                <p className='text-gray-600 text-xl font-normal mx-2 cursor-pointer'>
+                    <BsTrash onClick={() => handleDeleteItem(item)} />
+                </p>
+            </div>
+
 
         </div>
     )
