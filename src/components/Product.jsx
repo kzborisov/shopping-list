@@ -1,22 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Checkbox from './Checkbox'
+import { BsTrash } from 'react-icons/bs'
 
-const Product = ({ item, handleClick }) => {
+const Product = ({ item, handleClick, handleDeleteItem }) => {
 
-    const onCheckboxChange = () => {
-        item.bought = !item.bought;
-    }
+
 
     return (
-        <div className='flex justify-between w-full p-4 border-b-2 border-gray-400'>
+        <div className='flex justify-between items-center w-full p-4 border-b-2 border-gray-400'>
             <div className='flex gap-4 items-center justify-center'>
+
                 <Checkbox
-                    handleClick={() => handleClick(item)}
-                    bought={item.bought}
-                    onChange={onCheckboxChange} />
-                <p className={`${item.bought && 'line-through opacity-50'} text-left text-xl font-medium text-gray-500`}>{item.product}</p>
+                    item={item}
+                    handleClick={handleClick}
+                />
+                <p className={`${item.isBought && 'line-through opacity-50'} text-left text-xl font-medium text-gray-500`}>{item.product}</p>
             </div>
-            <p className={`${item.bought && 'line-through opacity-50'} text-gray-600 text-xl font-normal`}>{item.qty}</p>
+            <p className={`${item.isBought && 'line-through opacity-50'} text-gray-600 text-xl font-normal`}>{item.qty}</p>
+            <p className='text-gray-600 text-xl font-normal mx-2 cursor-pointer'>
+                <BsTrash onClick={() => handleDeleteItem(item)} />
+            </p>
+
         </div>
     )
 }
