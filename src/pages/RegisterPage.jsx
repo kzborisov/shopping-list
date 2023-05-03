@@ -36,9 +36,10 @@ const RegisterPage = () => {
 
     const handleGoogleSignIn = async () => {
         try {
-            const result = await signInWithGoogle();
-            localStorage.setItem('isSignedIn', true);
-            navigate('/shopping-list/');
+            alert('Under construction! Comming soon!')
+            // await signInWithGoogle();
+            // localStorage.setItem('isSignedIn', true);
+            // navigate('/shopping-list/');
         } catch (err) {
             console.log(err.message);
         }

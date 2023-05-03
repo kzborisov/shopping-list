@@ -22,9 +22,10 @@ const LoginPage = () => {
 
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle();
-            localStorage.setItem('isSignedIn', true);
-            navigate('/shopping-list/');
+            alert('Under construction! Comming soon!')
+            // await signInWithGoogle();
+            // localStorage.setItem('isSignedIn', true);
+            // navigate('/shopping-list/');
         } catch (err) {
             alert(err.message)
             console.log(err.message);
