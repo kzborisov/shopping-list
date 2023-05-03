@@ -3,9 +3,6 @@ import Checkbox from './Checkbox'
 import { BsTrash } from 'react-icons/bs'
 
 const Product = ({ item, handleClick, handleDeleteItem }) => {
-
-
-
     return (
         <div className='flex justify-between items-center w-full p-4 border-b-2 border-gray-400'>
             <div className='flex gap-4 items-center justify-center'>
