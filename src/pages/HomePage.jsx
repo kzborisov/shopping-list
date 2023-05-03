@@ -16,7 +16,6 @@ const HomePage = () => {
     const inputRef = useRef(null);
     const listCollectionRef = collection(db, 'shopping-list');
     const navigate = useNavigate();
-    const user = auth.currentUser;
 
     useEffect(() => {
         getLists();
@@ -24,9 +23,12 @@ const HomePage = () => {
 
     const getLists = async () => {
         const data = await getDocs(listCollectionRef);
+        console.log(data.docs
+            .map((doc) => ({ ...doc.data(), id: doc.id }))
+            .filter(item => item.userId === auth.currentUser.uid))
         setItems(data.docs
             .map((doc) => ({ ...doc.data(), id: doc.id }))
-            .filter(item => item.userId === user.uid)
+            .filter(item => item.userId === auth.currentUser.uid)
             .sort((a, b) => a.isBought - b.isBought));
     }
 
@@ -38,7 +40,7 @@ const HomePage = () => {
         }
         await addDoc(
             listCollectionRef,
-            { userId: user?.uid, product: newProduct, quantity: newQuantity, isBought: false }
+            { userId: auth.currentUser.uid, product: newProduct, quantity: newQuantity, isBought: false }
         );
         getLists();
 

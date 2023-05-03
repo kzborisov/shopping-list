@@ -45,7 +45,7 @@ const RegisterPage = () => {
     }
 
     return (
-        <div className='flex flex-col items-center gap-4'>
+        <div className='flex flex-col items-center gap-4 p-4 min-w-[350px] md:w-[550px] lg:w-[350px] mx-auto'>
             <h2 className='text-3xl font-bold my-4 text-gray-600'>Register</h2>
             <form
                 onSubmit={handleRegisterFormSubmit}
