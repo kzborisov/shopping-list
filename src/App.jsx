@@ -30,15 +30,15 @@ function App() {
             element: <Protected><HomePage /></Protected>,
         },
         {
-            path: "/shopping-list/login",
+            path: "/shopping-list/login/",
             element: <LoginPage />,
         },
         {
-            path: "/shopping-list/reset-password",
+            path: "/shopping-list/reset-password/",
             element: <PasswordReset />,
         },
         {
-            path: "/shopping-list/register",
+            path: "/shopping-list/register/",
             element: <RegisterPage />,
         },
     ]);

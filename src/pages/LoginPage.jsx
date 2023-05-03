@@ -66,7 +66,7 @@ const LoginPage = () => {
                 />
 
                 <p className='text-sm mt-2 text-right text-gray-600 font-medium cursor-pointer hover:drop-shadow-md tracking-[.05rem]'>
-                    <Link to="/shopping-list/reset-password">Forgot password?</Link>
+                    <Link to="/shopping-list/reset-password/">Forgot password?</Link>
                 </p>
 
                 <button type='submit' className='mt-6 p-2 rounded-xl bg-orange-500 text-white font-semibold hover:drop-shadow-md'>Login</button>
