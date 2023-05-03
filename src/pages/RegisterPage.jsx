@@ -49,7 +49,7 @@ const RegisterPage = () => {
             <h2 className='text-3xl font-bold my-4 text-gray-600'>Register</h2>
             <form
                 onSubmit={handleRegisterFormSubmit}
-                className='flex flex-col justify-start m-4 p-4'>
+                className='flex flex-col justify-start m-4 p-4 w-full'>
                 <label htmlFor='email' className='text-left my-2 text-gray-600 font-medium'>Email</label>
                 <input type='email' placeholder='Enter your email' name='email'
                     onChange={onRegisterEmailChange}

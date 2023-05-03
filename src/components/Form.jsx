@@ -3,7 +3,7 @@ import React from 'react'
 const Form = ({ handleSubmit, onChangeProduct, onChangeQty, inputRef }) => {
     return (
         <form
-            className='p-4 w-full flex flex-col items-center justify-center'
+            className='p-4 flex flex-col items-center justify-center w-full'
             onSubmit={handleSubmit}
         >
             <input
