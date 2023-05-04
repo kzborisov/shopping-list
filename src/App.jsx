@@ -34,11 +34,11 @@ function App() {
             element: <LoginPage />,
         },
         {
-            path: "/reset-password/",
+            path: "/reset-password",
             element: <PasswordReset />,
         },
         {
-            path: "/register/",
+            path: "/register",
             element: <RegisterPage />,
         },
     ]);

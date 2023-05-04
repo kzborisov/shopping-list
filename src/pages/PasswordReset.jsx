@@ -26,6 +26,7 @@ const PasswordReset = () => {
             localStorage.setItem('isSignedIn', true);
             navigate('/');
         } catch (err) {
+            alert(err.message)
             console.log(err.message);
         }
     }

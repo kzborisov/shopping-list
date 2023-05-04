@@ -36,11 +36,11 @@ const RegisterPage = () => {
 
     const handleGoogleSignIn = async () => {
         try {
-            alert('Under construction! Comming soon!')
-            // await signInWithGoogle();
-            // localStorage.setItem('isSignedIn', true);
-            // navigate('/');
+            await signInWithGoogle();
+            localStorage.setItem('isSignedIn', true);
+            navigate('/');
         } catch (err) {
+            alert(err.message)
             console.log(err.message);
         }
     }
