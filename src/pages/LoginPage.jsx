@@ -13,7 +13,7 @@ const LoginPage = () => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             localStorage.setItem('isSignedIn', true);
-            navigate('/shopping-list/')
+            navigate('/')
         } catch (err) {
             console.log(err.message);
             alert(err.message);
@@ -25,7 +25,7 @@ const LoginPage = () => {
             alert('Under construction! Comming soon!')
             // await signInWithGoogle();
             // localStorage.setItem('isSignedIn', true);
-            // navigate('/shopping-list/');
+            // navigate('/');
         } catch (err) {
             alert(err.message)
             console.log(err.message);
@@ -67,7 +67,7 @@ const LoginPage = () => {
                 />
 
                 <p className='text-sm mt-2 text-right text-gray-600 font-medium cursor-pointer hover:drop-shadow-md tracking-[.05rem]'>
-                    <Link to="/shopping-list/reset-password/">Forgot password?</Link>
+                    <Link to="/reset-password/">Forgot password?</Link>
                 </p>
 
                 <button type='submit' className='mt-6 p-2 rounded-xl bg-orange-500 text-white font-semibold hover:drop-shadow-md'>Login</button>
@@ -80,7 +80,7 @@ const LoginPage = () => {
 
             <div className='absolute bottom-10 md:relative md:bottom-0 flex flex-col gap-1'>
                 <p className='text-sm text-right text-gray-600 font-medium tracking-[.05rem]'>Or Sign Up Using</p>
-                <Link to="/shopping-list/register/" className='cursor-pointer hover:drop-shadow-md'>SIGN UP</Link>
+                <Link to="/register/" className='cursor-pointer hover:drop-shadow-md'>SIGN UP</Link>
             </div>
 
         </div>

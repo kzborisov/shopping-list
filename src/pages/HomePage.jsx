@@ -100,7 +100,7 @@ const HomePage = () => {
     const handleLogOut = async () => {
         await signOut(auth);
         localStorage.setItem('isSignedIn', false);
-        navigate('/shopping-list/login/');
+        navigate('/login');
     }
 
     return (

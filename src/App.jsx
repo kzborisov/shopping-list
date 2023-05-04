@@ -26,19 +26,19 @@ function App() {
 
     const router = createBrowserRouter([
         {
-            path: "/shopping-list/",
+            path: "/",
             element: <Protected><HomePage /></Protected>,
         },
         {
-            path: "/shopping-list/login/",
+            path: "/login",
             element: <LoginPage />,
         },
         {
-            path: "/shopping-list/reset-password/",
+            path: "/reset-password/",
             element: <PasswordReset />,
         },
         {
-            path: "/shopping-list/register/",
+            path: "/register/",
             element: <RegisterPage />,
         },
     ]);
