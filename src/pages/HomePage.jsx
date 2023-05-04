@@ -16,22 +16,23 @@ const HomePage = () => {
     const inputRef = useRef(null);
     const listCollectionRef = collection(db, 'shopping-list');
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         getLists();
     }, [])
 
     const getLists = async () => {
+        setLoading(true);
         const data = await getDocs(listCollectionRef);
-        console.log(data.docs
-            .map((doc) => ({ ...doc.data(), id: doc.id }))
-            .filter(item => item.userId === auth.currentUser.uid))
         setItems(data.docs
             .map((doc) => ({ ...doc.data(), id: doc.id }))
             .filter(item => item.userId === auth.currentUser.uid)
             .sort((a, b) => a.isBought - b.isBought));
+        setLoading(false);
     }
 
+    console.log(loading);
     const createProduct = async (e) => {
         e.preventDefault();
         if (!e.target.product.value) {
@@ -105,8 +106,8 @@ const HomePage = () => {
 
     return (
 
-        <div className='flex flex-col gap-4 min-w-[350px] md:w-[550px] lg:w-[350px] relative mx-auto'>
-            <CiLogout size={30} onClick={handleLogOut} className='m-4 cursor-pointer' />
+        <div className='flex flex-col gap-2 min-w-[350px] md:w-[550px] lg:w-[350px] relative mx-auto'>
+            <CiLogout size={30} onClick={handleLogOut} className='mx-4 cursor-pointer' />
             {/* TODO: Add profile */}
 
             <h1 className='text-xl font-semibold text-gray-600'>
@@ -115,15 +116,19 @@ const HomePage = () => {
 
 
             <div className="flex flex-col items-center p-4 drop-shadow-xl">
-                {items.map((item) => (
-                    <React.Fragment key={item.id}>
-                        <Product
-                            item={item}
-                            handleClick={handleCheckboxClick}
-                            handleDeleteItem={handleDeleteItem}
-                        />
-                    </React.Fragment>
-                ))}
+                {loading
+                    ?
+                    <p className='text-sm m-4 text-right text-gray-600 font-medium cursor-pointer hover:drop-shadow-md tracking-[.05rem]'>Loading products....</p>
+                    :
+                    items.map((item) => (
+                        <React.Fragment key={item.id}>
+                            <Product
+                                item={item}
+                                handleClick={handleCheckboxClick}
+                                handleDeleteItem={handleDeleteItem}
+                            />
+                        </React.Fragment>
+                    ))}
                 <Form
                     handleSubmit={createProduct}
                     onChangeProduct={onChangeProduct}
